@@ -1,11 +1,29 @@
 {
-  "name": "sloc",
-  "module": "index.ts",
-  "type": "module",
-  "devDependencies": {
-    "@types/bun": "latest"
-  },
-  "peerDependencies": {
-    "typescript": "^5.0.0"
-  }
+    "name": "sloc",
+    "module": "index.ts",
+    "type": "module",
+    "scripts": {
+        "dev": "bun index.ts",
+        "dev:watch": "bun --watch index.ts",
+        "biome": "npm-run-all --parallel lint format",
+        "biome:unsafe": "npm-run-all --parallel lint:unsafe format",
+        "format": "biome format --write .",
+        "lint": "biome check --write .",
+        "lint:unsafe": "biome check --write --unsafe ."
+    },
+    "devDependencies": {
+        "@octokit/types": "^13.5.0",
+        "@types/bun": "latest",
+        "npm-run-all": "^4.1.5"
+    },
+    "peerDependencies": {
+        "typescript": "^5.0.0"
+    },
+    "dependencies": {
+        "cheerio": "^1.0.0",
+        "ky": "^1.6.0",
+        "octokit": "^4.0.2",
+        "p-limit": "^6.1.0",
+        "puppeteer": "^23.1.0"
+    }
 }
